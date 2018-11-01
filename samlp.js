@@ -4,11 +4,16 @@ var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
 const pug = require("pug")
+const path = require("path")
 app.use(
   bodyParser.urlencoded({
     extended: true
   })
 );
+// Set views path
+app.set('views', path.join(__dirname, 'views'));
+// Set public path
+app.use(express.static(path.join(__dirname, 'public')));
 
 const port = process.env.PORT || 8080;
 
