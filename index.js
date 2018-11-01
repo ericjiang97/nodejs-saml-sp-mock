@@ -9,12 +9,14 @@ app.use(bodyParser.urlencoded({
  
 const port = process.env.PORT || 8080
 
+const rootDomain = "https://monash-saml-sp-mock-dev.appspot.com"
+
 // Create service provider
 var sp_options = {
-  entity_id: "https://monash-saml-sp-mock-dev.appspot.com/saml/metadata",
+  entity_id: `${rootDomain}/saml/metadata`,
   private_key: fs.readFileSync("./config/sp-key.pem").toString(),
   certificate: fs.readFileSync("./config/sp-cert.pem").toString(),
-  assert_endpoint: "./assert",
+  assert_endpoint: `${rootDomain}/saml/assert`,
   nameid_format: "urn:oasis:names:tc:SAML:2.0:nameid-format:transient",
   sign_get_request: false,
   allow_unencrypted_assertion: true
@@ -31,7 +33,7 @@ var idp = new saml2.IdentityProvider(idp_options);
 // ------ Define express endpoints ------
  
 // Endpoint to retrieve metadata
-app.get("/saml/metadata.xml", function(req, res) {
+app.get("/saml/metadata", function(req, res) {
   res.type('application/xml');
   res.send(sp.create_metadata());
 });
@@ -48,7 +50,7 @@ app.get("/login", function(req, res) {
 });
  
 // Assert endpoint for when login completes
-app.post("/assert", function(req, res) {
+app.post("/saml/assert", function(req, res) {
   var options = {request_body: req.body};
   sp.post_assert(idp, options, function(err, saml_response) {
     if (err != null)
