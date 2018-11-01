@@ -1,0 +1,17 @@
+{
+  "name": "monash-mock-saml",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:lorderikir/monash-mock-saml.git",
+  "author": "Eric Jiang <ericjiang97@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "fake-sso-idp": "^0.2.0",
+    "fs": "^0.0.1-security",
+    "saml2-js": "^2.0.3"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
