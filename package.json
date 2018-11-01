@@ -20,6 +20,6 @@
     "beta": "node samlp.js"
   },
   "engines": {
-    "node": "8.12.X"
+    "node": "8.X.X"
   }
 }
