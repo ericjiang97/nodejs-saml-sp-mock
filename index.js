@@ -9,10 +9,13 @@ app.use(bodyParser.urlencoded({
  
 // Create service provider
 var sp_options = {
-  entity_id: "https://sp.example.com/metadata.xml",
+  entity_id: "./metadata.xml",
   private_key: fs.readFileSync("./config/sp-key.pem").toString(),
-  certificate: fs.readFileSync("./config/sp-cert.crt").toString(),
-  assert_endpoint: "https://sp.example.com/assert"
+  certificate: fs.readFileSync("./config/sp-cert.pem").toString(),
+  assert_endpoint: "./assert",
+  nameid_format: "urn:oasis:names:tc:SAML:2.0:nameid-format:transient",
+  sign_get_request: false,
+  allow_unencrypted_assertion: true
 };
 var sp = new saml2.ServiceProvider(sp_options);
  
