@@ -78,9 +78,9 @@ app.get("/logout", function(req, res) {
     res.redirect(logout_url);
   });
 });
- 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+app.set('view engine', 'pug')
+app.get('/', function (req, res) {
+  res.render('index', { title: 'Hey', message: 'Hello there!' })
 })
 
 app.listen(port);
