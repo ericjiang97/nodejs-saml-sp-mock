@@ -16,8 +16,7 @@
     "samlp": "^3.4.0"
   },
   "scripts": {
-    "start": "node index.js",
-    "beta": "node samlp.js"
+    "start": "node index.js"
   },
   "engines": {
     "node": "8.X.X"
