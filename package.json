@@ -1,8 +1,8 @@
 {
-  "name": "monash-mock-saml",
+  "name": "nodejs-saml-sp-mock",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:lorderikir/monash-mock-saml.git",
+  "repository": "git@github.com:lorderikir/nodejs-saml-sp-mock.git",
   "author": "Eric Jiang <ericjiang97@gmail.com>",
   "license": "MIT",
   "dependencies": {
