@@ -7,6 +7,8 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
  
+const port = process.env.PORT || 8080
+
 // Create service provider
 var sp_options = {
   entity_id: "./metadata.xml",
@@ -79,4 +81,4 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.listen(3000);
+app.listen(port);
